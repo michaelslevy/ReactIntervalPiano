@@ -4,16 +4,11 @@ import ToneButton from "./components/ToneButton"
 
 import LoadingIcon from "./preloader.gif"
 
-/* font awesome */
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-library.add(faAngleUp, faAngleDown)
-
 class App extends Component {
 
    state = {
-      loading: true
+      loading: true,
+      currentTone:440,
     };
 
     componentDidMount() {
@@ -47,22 +42,22 @@ class App extends Component {
         <h1>React Music Player</h1>
           <div id="Modifiers">
             <div id="above">
-                <ToneButton color='#1d1aab'><FontAwesomeIcon icon="angle-up" /></ToneButton>
-                <ToneButton color='#ab1a1a'><FontAwesomeIcon icon="angle-up" /></ToneButton>
-                <ToneButton color='#1aab65'><FontAwesomeIcon icon="angle-up" /></ToneButton>
-                <ToneButton color='#1aa9ab'><FontAwesomeIcon icon="angle-up" /></ToneButton>
-                <ToneButton color='#32ab1a'><FontAwesomeIcon icon="angle-up" /></ToneButton>
-                <ToneButton color='#5b1aab'><FontAwesomeIcon icon="angle-up" /></ToneButton>
-                <ToneButton color='#c85e1e'><FontAwesomeIcon icon="angle-up" /></ToneButton>
+                <ToneButton color='#1d1aab' interval='2' pitchDirection="higher" />
+                <ToneButton color='#ab1a1a' interval='1.15' pitchDirection="higher" />
+                <ToneButton color='#1aab65' interval='1.3' pitchDirection="higher" />
+                <ToneButton color='#1aa9ab' interval='1.45' pitchDirection="higher" />
+                <ToneButton color='#32ab1a' interval='1.60' pitchDirection="higher" />
+                <ToneButton color='#5b1aab' interval='1.75' pitchDirection="higher" />
+                <ToneButton color='#c85e1e' interval='1.90' pitchDirection="higher" />
             </div>
             <div id="below">
-              <ToneButton color='#1d1aab'><FontAwesomeIcon icon="angle-down" /></ToneButton>
-              <ToneButton color='#ab1a1a'><FontAwesomeIcon icon="angle-down" /></ToneButton>
-              <ToneButton color='#1aab65'><FontAwesomeIcon icon="angle-down" /></ToneButton>
-              <ToneButton color='#1aa9ab'><FontAwesomeIcon icon="angle-down" /></ToneButton>
-              <ToneButton color='#32ab1a'><FontAwesomeIcon icon="angle-down" /></ToneButton>
-              <ToneButton color='#5b1aab'><FontAwesomeIcon icon="angle-down" /></ToneButton>
-              <ToneButton color='#c85e1e'><FontAwesomeIcon icon="angle-down" /></ToneButton>
+              <ToneButton color='#1d1aab' interval='.5' pitchDirection="lower" />
+              <ToneButton color='#ab1a1a' interval='.55' pitchDirection="lower" />
+              <ToneButton color='#1aab65' interval='.63' pitchDirection="lower" />
+              <ToneButton color='#1aa9ab' interval='.7' pitchDirection="lower" />
+              <ToneButton color='#32ab1a' interval='.78' pitchDirection="lower" />
+              <ToneButton color='#5b1aab' interval='.84' pitchDirection="lower" />
+              <ToneButton color='#c85e1e' interval='.93' pitchDirection="lower" />
             </div>
           </div>
       </div>
