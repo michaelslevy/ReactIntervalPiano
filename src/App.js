@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ToneButton from "./components/ToneButton"
 
+import LoadingIcon from "./preloader.gif"
 
 /* font awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -24,13 +25,21 @@ class App extends Component {
 
     const { loading } = this.state;
     if(loading) {
-      let styles = {
-        fontSize:'4em',
-        fontFamily:'"century gothic", "open-sans", arial,sans-serif',
+
+      const divStyles = {
         textAlign: 'center',
         marginTop: '10%'
+      }
+
+      const h1Styles = {
+        fontSize:'4em',
+        fontFamily:'"century gothic", "open-sans", arial,sans-serif',
         };
-      return <h1 style={styles}>loading</h1> // render null when app is not ready
+
+      return <div style={divStyles}>
+              <img src={LoadingIcon} />
+              <h1 style={h1Styles}>loading</h1>
+             </div>
     }
 
     return (
