@@ -10,16 +10,31 @@ library.add(faAngleUp, faAngleDown)
 
 class ToneButton extends React.Component {
 
-  playNote=function(e){
+  constructor(props) {
+    super(props);
+    this.state={
+      sound:null
+    }
 
-    e.preventDefault();
-    var sound = new Pizzicato.Sound({
-        source: 'wave',
-        options: { type: 'sawtooth', frequency: 440 },
-        volume: .5
+    this.playNote=this.playNote.bind(this);
+  }
+
+  componentDidMount(){
+    let sound=new Pizzicato.Sound({
+          source: 'wave',
+          options: { type: 'sawtooth', frequency: 440 },
+          volume: .1
     });
 
-    sound.play();
+   if(this.state){this.setState({sound:sound});}
+  }
+
+  playNote=function(e){
+    e.preventDefault();
+
+    (this.state && this.state.sound )?
+    this.state.sound.play():
+    console.log('sound not ready');
 
   }
 
@@ -30,7 +45,7 @@ class ToneButton extends React.Component {
       };
 
     return (
-      <button style={styles} onClick={this.playNote} >
+      <button style={styles} onMouseDown={this.playNote} >
       {
         (this.props.pitchDirection==="higher")?
          <FontAwesomeIcon icon="angle-up" />:

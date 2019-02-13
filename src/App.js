@@ -32,7 +32,7 @@ class App extends Component {
         };
 
       return <div style={divStyles}>
-              <img src={LoadingIcon} />
+              <img src={LoadingIcon} alt='loading' />
               <h1 style={h1Styles}>loading</h1>
              </div>
     }
