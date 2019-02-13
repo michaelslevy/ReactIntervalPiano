@@ -1,15 +1,38 @@
 import React, { Component } from 'react';
+
 import ToneButton from "./components/ToneButton"
-import './App.css';
+
+
 /* font awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons'
-
 library.add(faAngleUp, faAngleDown)
 
 class App extends Component {
+
+   state = {
+      loading: true
+    };
+
+    componentDidMount() {
+      // the setTimeout just simulates an async action, after which the component will render the content
+      setTimeout(() => this.setState({ loading: false }), 1500);
+    }
+
   render() {
+
+    const { loading } = this.state;
+    if(loading) {
+      let styles = {
+        fontSize:'4em',
+        fontFamily:'"century gothic", "open-sans", arial,sans-serif',
+        textAlign: 'center',
+        marginTop: '10%'
+        };
+      return <h1 style={styles}>loading</h1> // render null when app is not ready
+    }
+
     return (
       <div className="App">
         <h1>React Music Player</h1>
