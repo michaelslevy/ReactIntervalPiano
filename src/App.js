@@ -47,7 +47,7 @@ class App extends Component {
                 <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1aa9ab' interval={5} pitchDirection="higher" />
                 <ToneButton currentTonePosition={this.state.currentTonePosition} color='#32ab1a' interval={7} pitchDirection="higher" />
                 <ToneButton currentTonePosition={this.state.currentTonePosition} color='#5b1aab' interval={9} pitchDirection="higher" />
-                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#c85e1e' interval={1} pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#c85e1e' interval={11} pitchDirection="higher" />
                 <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1d1aab' interval={12} pitchDirection="higher" />
             </div>
             <div id="below">

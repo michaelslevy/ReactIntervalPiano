@@ -130,7 +130,6 @@ var FindTone = function () {
 
     self.findNote = function () {
         findNotePosition();
-        console.log(self.newTonePosition);
         let noteInfo=notes[self.newTonePosition];
         return (noteInfo ? noteInfo : "invalid");
     }

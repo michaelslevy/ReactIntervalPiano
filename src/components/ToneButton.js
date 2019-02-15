@@ -43,7 +43,8 @@ class ToneButton extends React.Component {
   playNote=function(e){
     e.preventDefault();
 
-    this.getNewNote();
+    let newNote=this.getNewNote();
+    this.state.sound.frequency=newNote[0];
 
     (this.state && this.state.sound )?
     this.state.sound.play():
@@ -67,7 +68,7 @@ class ToneButton extends React.Component {
       };
 
     return (
-      <button style={styles} onMouseDown={this.playNote} onMouseUp={this.stopNote} >
+      <button style={styles} onMouseDown={this.playNote} onMouseUp={this.stopNote} onMouseOut={this.stopNote} >
       {
         (this.props.pitchDirection==="higher")?
          <FontAwesomeIcon icon="angle-up" />:
