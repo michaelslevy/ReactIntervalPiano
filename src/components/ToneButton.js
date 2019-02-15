@@ -22,9 +22,12 @@ class ToneButton extends React.Component {
   }
 
   componentDidMount(){
+    let newNote=this.getNewNote();
+    this.props.tonePositionHandler(newNote);
+
     let sound=new Pizzicato.Sound({
           source: 'wave',
-          options: { type: 'sawtooth', frequency: 440, release:.5 },
+          options: { type: 'sawtooth', frequency: newNote[0], release:.5 },
           volume: .1
     });
 
@@ -42,9 +45,6 @@ class ToneButton extends React.Component {
 
   playNote=function(e){
     e.preventDefault();
-
-    let newNote=this.getNewNote();
-    this.state.sound.frequency=newNote[0];
 
     (this.state && this.state.sound )?
     this.state.sound.play():
