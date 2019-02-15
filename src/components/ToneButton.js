@@ -1,5 +1,6 @@
 import React from 'react'
 import Pizzicato from 'pizzicato'
+import FindTone from "../musical/FindTone"
 
 /* font awesome */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -17,23 +18,44 @@ class ToneButton extends React.Component {
     }
 
     this.playNote=this.playNote.bind(this);
+    this.stopNote=this.stopNote.bind(this);
   }
 
   componentDidMount(){
     let sound=new Pizzicato.Sound({
           source: 'wave',
-          options: { type: 'sawtooth', frequency: 440 },
+          options: { type: 'sawtooth', frequency: 440, release:.5 },
           volume: .1
     });
 
    if(this.state){this.setState({sound:sound});}
   }
 
+  getNewNote=function(){
+   let findTone=new FindTone();
+    findTone.currentTonePosition=this.props.currentTonePosition; //position in index beow
+    findTone.interval=this.props.interval; //musical interval
+    findTone.direction=this.props.pitchDirection;
+    let newNote=findTone.findNote();
+    return(newNote);
+  }
+
   playNote=function(e){
     e.preventDefault();
 
+    this.getNewNote();
+
     (this.state && this.state.sound )?
     this.state.sound.play():
+    console.log('sound not ready');
+
+  }
+
+  stopNote=function(e){
+    e.preventDefault();
+
+    (this.state && this.state.sound )?
+    this.state.sound.stop():
     console.log('sound not ready');
 
   }
@@ -45,7 +67,7 @@ class ToneButton extends React.Component {
       };
 
     return (
-      <button style={styles} onMouseDown={this.playNote} >
+      <button style={styles} onMouseDown={this.playNote} onMouseUp={this.stopNote} >
       {
         (this.props.pitchDirection==="higher")?
          <FontAwesomeIcon icon="angle-up" />:

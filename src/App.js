@@ -6,15 +6,15 @@ import LoadingIcon from "./preloader.gif"
 
 class App extends Component {
 
-   state = {
-      loading: true,
-      currentTone:440,
-    };
+ state = {
+    loading: true,
+    currentTonePosition:57,
+  };
 
-    componentDidMount() {
-      // the setTimeout just simulates an async action, after which the component will render the content
-      setTimeout(() => this.setState({ loading: false }), 1500);
-    }
+  componentDidMount() {
+    // the setTimeout just simulates an async action, after which the component will render the content
+    setTimeout(() => this.setState({ loading: false }), 1500);
+  }
 
   render() {
 
@@ -42,22 +42,22 @@ class App extends Component {
         <h1>React Music Player</h1>
           <div id="Modifiers">
             <div id="above">
-                <ToneButton color='#1d1aab' interval='2' pitchDirection="higher" />
-                <ToneButton color='#ab1a1a' interval='1.15' pitchDirection="higher" />
-                <ToneButton color='#1aab65' interval='1.3' pitchDirection="higher" />
-                <ToneButton color='#1aa9ab' interval='1.45' pitchDirection="higher" />
-                <ToneButton color='#32ab1a' interval='1.60' pitchDirection="higher" />
-                <ToneButton color='#5b1aab' interval='1.75' pitchDirection="higher" />
-                <ToneButton color='#c85e1e' interval='1.90' pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#ab1a1a' interval={2} pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1aab65' interval={4} pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1aa9ab' interval={5} pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#32ab1a' interval={7} pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#5b1aab' interval={9} pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#c85e1e' interval={1} pitchDirection="higher" />
+                <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1d1aab' interval={12} pitchDirection="higher" />
             </div>
             <div id="below">
-              <ToneButton color='#1d1aab' interval='.5' pitchDirection="lower" />
-              <ToneButton color='#ab1a1a' interval='.55' pitchDirection="lower" />
-              <ToneButton color='#1aab65' interval='.63' pitchDirection="lower" />
-              <ToneButton color='#1aa9ab' interval='.7' pitchDirection="lower" />
-              <ToneButton color='#32ab1a' interval='.78' pitchDirection="lower" />
-              <ToneButton color='#5b1aab' interval='.84' pitchDirection="lower" />
-              <ToneButton color='#c85e1e' interval='.93' pitchDirection="lower" />
+              <ToneButton currentTonePosition={this.state.currentTonePosition} color='#ab1a1a' interval={2} pitchDirection="lower" />
+              <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1aab65' interval={4} pitchDirection="lower" />
+              <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1aa9ab' interval={5} pitchDirection="lower" />
+              <ToneButton currentTonePosition={this.state.currentTonePosition} color='#32ab1a' interval={7} pitchDirection="lower" />
+              <ToneButton currentTonePosition={this.state.currentTonePosition} color='#5b1aab' interval={9} pitchDirection="lower" />
+              <ToneButton currentTonePosition={this.state.currentTonePosition} color='#c85e1e' interval={11} pitchDirection="lower" />
+              <ToneButton currentTonePosition={this.state.currentTonePosition} color='#1d1aab' interval={12} pitchDirection="lower" />
             </div>
           </div>
       </div>
