@@ -14,7 +14,8 @@ class ToneButton extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      sound:null
+      sound:null,
+      noteLetter:"A"
     }
 
     this.playNote=this.playNote.bind(this);
@@ -31,7 +32,7 @@ class ToneButton extends React.Component {
           volume: .1
     });
 
-   if(this.state){this.setState({sound:sound});}
+   if(this.state){this.setState({sound:sound,noteLetter:newNote[1] });}
   }
 
   getNewNote=function(){
@@ -69,11 +70,14 @@ class ToneButton extends React.Component {
 
     return (
       <button style={styles} onMouseDown={this.playNote} onMouseUp={this.stopNote} onMouseOut={this.stopNote} >
+        <span className='letter'>{this.state.noteLetter}</span>
+        <span className='pointer'>
       {
         (this.props.pitchDirection==="higher")?
          <FontAwesomeIcon icon="angle-up" />:
          <FontAwesomeIcon icon="angle-down" />
       }
+        </span>
 
       </button>
     )
