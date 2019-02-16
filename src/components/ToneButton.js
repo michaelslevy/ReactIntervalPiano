@@ -15,7 +15,8 @@ class ToneButton extends React.Component {
     super(props);
     this.state={
       sound:null,
-      noteLetter:"A"
+      noteLetter:"A",
+      opacity:1
     }
 
     this.playNote=this.playNote.bind(this);
@@ -31,14 +32,13 @@ class ToneButton extends React.Component {
     });
 
    if(this.state){this.setState({sound:sound,noteLetter:newNote[1] });}
-
-   console.log("componentDidMount",this.props);
   }
 
   componentDidUpdate(oldProps){
     const newProps = this.props;
     if(oldProps.currentTonePosition !== newProps.currentTonePosition) {
       let newNote=this.getNewNote();
+      (newNote==='invalid')? this.setState({opacity:0}):this.setState({opacity:1})
       this.setState({noteLetter:newNote[1]});
     }
   }
@@ -59,6 +59,7 @@ class ToneButton extends React.Component {
     let newNote=this.getNewNote();
   //  console.log(newNote,letter);
     this.props.tonePositionHandler(newNote[2]);
+    this.state.sound.frequency=newNote[0];
 
     (this.state && this.state.sound )?
     this.state.sound.play():
@@ -78,7 +79,8 @@ class ToneButton extends React.Component {
   render () {
 
     let styles = {
-        backgroundColor: this.props.color
+        backgroundColor: this.props.color,
+        opacity:this.state.opacity
       };
 
     return (
