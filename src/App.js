@@ -22,7 +22,7 @@ class App extends Component {
 
   tonePositionHandler(midiPosition){
     //note array in FindTone starts with 12
-    let pos=midiPosition[2]-12;
+    let pos=midiPosition-12;
     this.setState({currentTonePosition:pos});
   }
 

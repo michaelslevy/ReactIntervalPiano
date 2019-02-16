@@ -24,8 +24,6 @@ class ToneButton extends React.Component {
 
   componentDidMount(){
     let newNote=this.getNewNote();
-    this.props.tonePositionHandler(newNote);
-
     let sound=new Pizzicato.Sound({
           source: 'wave',
           options: { type: 'sawtooth', frequency: newNote[0], release:.5 },
@@ -33,6 +31,16 @@ class ToneButton extends React.Component {
     });
 
    if(this.state){this.setState({sound:sound,noteLetter:newNote[1] });}
+
+   console.log("componentDidMount",this.props);
+  }
+
+  componentDidUpdate(oldProps){
+    const newProps = this.props;
+    if(oldProps.currentTonePosition !== newProps.currentTonePosition) {
+      let newNote=this.getNewNote();
+      this.setState({noteLetter:newNote[1]});
+    }
   }
 
   getNewNote=function(){
@@ -40,12 +48,17 @@ class ToneButton extends React.Component {
     findTone.currentTonePosition=this.props.currentTonePosition; //position in index beow
     findTone.interval=this.props.interval; //musical interval
     findTone.direction=this.props.pitchDirection;
+
     let newNote=findTone.findNote();
     return(newNote);
   }
 
   playNote=function(e){
     e.preventDefault();
+
+    let newNote=this.getNewNote();
+  //  console.log(newNote,letter);
+    this.props.tonePositionHandler(newNote[2]);
 
     (this.state && this.state.sound )?
     this.state.sound.play():
