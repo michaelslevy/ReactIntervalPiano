@@ -13,6 +13,7 @@ class App extends Component {
         currentTonePosition:57,
       };
       this.tonePositionHandler=this.tonePositionHandler.bind(this);
+
     }
 
   componentDidMount() {
@@ -27,7 +28,7 @@ class App extends Component {
   }
 
   render() {
-
+    
     const { loading } = this.state;
     if(loading) {
 
@@ -49,9 +50,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>React Music Player</h1>
+        <h1>Interval Music Piano</h1>
+        <p>Keys play the next interval, first, second, third, etc... </p>
           <div id="Modifiers">
-            <div id="above">
+            <div id="above" className='intervalGroup'>
                 <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#ab1a1a' interval={2} pitchDirection="higher" />
                 <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#1aab65' interval={4} pitchDirection="higher" />
                 <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#1aa9ab' interval={5} pitchDirection="higher" />
@@ -60,7 +62,7 @@ class App extends Component {
                 <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#c85e1e' interval={11} pitchDirection="higher" />
                 <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#1d1aab' interval={12} pitchDirection="higher" />
             </div>
-            <div id="below">
+            <div id="below" className='intervalGroup'>
               <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#ab1a1a' interval={2} pitchDirection="lower" />
               <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#1aab65' interval={4} pitchDirection="lower" />
               <ToneButton tonePositionHandler={this.tonePositionHandler} currentTonePosition={this.state.currentTonePosition} color='#1aa9ab' interval={5} pitchDirection="lower" />

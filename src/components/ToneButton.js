@@ -38,8 +38,7 @@ class ToneButton extends React.Component {
     const newProps = this.props;
     if(oldProps.currentTonePosition !== newProps.currentTonePosition) {
       let newNote=this.getNewNote();
-      (newNote==='invalid')? this.setState({opacity:0}):this.setState({opacity:1})
-      this.setState({noteLetter:newNote[1]});
+      (newNote==='invalid')? this.setState({opacity:0}):this.setState({opacity:1, noteLetter:newNote[1]})
     }
   }
 
@@ -57,13 +56,15 @@ class ToneButton extends React.Component {
     e.preventDefault();
 
     let newNote=this.getNewNote();
-  //  console.log(newNote,letter);
-    this.props.tonePositionHandler(newNote[2]);
-    this.state.sound.frequency=newNote[0];
 
-    (this.state && this.state.sound )?
-    this.state.sound.play():
-    console.log('sound not ready');
+    if(newNote.length===3){
+      this.props.tonePositionHandler(newNote[2]);
+      this.state.sound.frequency=newNote[0];
+
+      (this.state && this.state.sound )?
+      this.state.sound.play():
+      console.log('sound not ready');
+    }
 
   }
 
