@@ -37,11 +37,6 @@ class App extends Component {
         marginTop: '10%'
       }
 
-      const h1Styles = {
-        fontSize:'1em',
-        fontFamily:'"century gothic", "open-sans", arial,sans-serif',
-      };
-
       return <div style={divStyles}>
               <img src={LoadingIcon} alt='loading' />
              </div>

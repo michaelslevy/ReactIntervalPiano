@@ -59,7 +59,10 @@ class ToneButton extends React.Component {
 
     if(newNote.length===3){
       this.props.tonePositionHandler(newNote[2]);
-      this.state.sound.frequency=newNote[0];
+      //this.state.sound.frequency=newNote[0];
+      let newSound=this.state.sound;
+      newSound.frequency=newNote[0];
+      this.setState({sound: newSound });
 
       (this.state && this.state.sound )?
       this.state.sound.play():
