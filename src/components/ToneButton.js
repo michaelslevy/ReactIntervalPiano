@@ -88,7 +88,7 @@ class ToneButton extends React.Component {
       };
 
     return (
-      <button style={styles} touchstart={this.playNote} onMouseDown={this.playNote} touchend={this.stopNote} onMouseUp={this.stopNote} onMouseOut={this.stopNote} >
+      <button style={styles} onTouchStart={this.playNote} onMouseDown={this.playNote} onTouchEnd={this.stopNote} onMouseUp={this.stopNote} onMouseOut={this.stopNote} >
         <span className='letter'>{this.state.noteLetter}</span>
         <span className='pointer'>
       {
