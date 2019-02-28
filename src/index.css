@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Coiny|Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Coiny|Inconsolata:400,700');
 
 body {
   font-size:1em;
@@ -27,7 +27,7 @@ button{
   text-align:center;
   line-height: 30px;
   border-radius: 20px;
-  padding:20px 0 10px 0;
+  padding:15px 0 20px 0;
   width:80px;
   opacity:.5;
   transition: opacity .5s;
@@ -58,8 +58,13 @@ button span{
   line-height:60%;
 }
 
-.letter {
+.name {
   font-size:.5em;
+  font-weight:700;
+}
+
+.letter {
+  font-size:.4em;
 }
 
 button:hover {
@@ -68,4 +73,12 @@ button:hover {
 
 button:focus {
   outline: 0;
+}
+
+@media (max-width:800px){
+  button {
+    width:calc(12% - 10px);
+    min-width:70px;
+    margin:10px 5px;
+  }
 }

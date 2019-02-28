@@ -89,7 +89,7 @@ class ToneButton extends React.Component {
 
     return (
       <button style={styles} onTouchStart={this.playNote} onMouseDown={this.playNote} onTouchEnd={this.stopNote} onMouseUp={this.stopNote} onMouseOut={this.stopNote} >
-        <span className='letter'>{this.state.noteLetter}</span>
+        <span className='name'>{this.props.name}</span>
         <span className='pointer'>
       {
         (this.props.pitchDirection==="higher")?
@@ -97,6 +97,7 @@ class ToneButton extends React.Component {
          <FontAwesomeIcon icon="angle-down" />
       }
         </span>
+        <span className='letter'>{this.state.noteLetter}</span>
 
       </button>
     )
