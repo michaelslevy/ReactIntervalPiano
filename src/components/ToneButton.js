@@ -53,7 +53,16 @@ class ToneButton extends React.Component {
   }
 
   playNote=function(e){
-    e.preventDefault();
+    e.preventDefault && e.preventDefault();
+    e.stopPropagation && e.stopPropagation();
+    e.cancelBubble = true;
+    e.returnValue = false;
+
+    window.oncontextmenu = function(event) {
+       event.preventDefault();
+       event.stopPropagation();
+       return false;
+     };
 
     let newNote=this.getNewNote();
 
