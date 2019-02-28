@@ -75,10 +75,39 @@ button:focus {
   outline: 0;
 }
 
-@media (max-width:800px){
+@media (max-width:800px) {
   button {
     width:calc(12% - 10px);
-    min-width:70px;
+    /*min-width:70px;*/
     margin:10px 5px;
+  }
+
+  .name {
+    font-size:.4em;
+  }
+  .pointer {
+    font-size:.8em;
+  }
+}
+
+@media (max-width:550px) {
+  button {
+    display:block;
+    float:left;
+    width:calc(25% - 10px);
+  }
+
+  .intervalGroup button:nth-child(4n+1){
+    clear:left;
+  }
+
+  .intervalGroup:after {
+    content:" ";
+    display: table;;
+    clear: both;
+  }
+
+  .intervalGroup {
+    margin-bottom:20px;
   }
 }
